@@ -66,11 +66,16 @@ class FitnessTableViewController: UITableViewController {
         let vc: ExerciseViewController = ExerciseViewController()
         
             self.tableView.reloadData()
-            self.navigationController?.pushViewController(vc, animated: true)
+           print("about to enter the form")
+        self.navigationController?.pushViewController(vc, animated: true)
         self.tableView.reloadData()
         self.viewDidLoad()
         print("im getting here")
         print(monEx.count)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     override func viewDidLoad() {

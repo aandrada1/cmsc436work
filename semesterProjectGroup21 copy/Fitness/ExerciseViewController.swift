@@ -78,18 +78,57 @@ class ExerciseViewController: FormViewController {
                 // Create object and save to core data
                 print("im here bitch")
                 
-                self.exToAdd.name = nameRow.value!
-                self.exToAdd.day = dayRow.value!
-                self.exToAdd.sets = setRow.value!
-                self.exToAdd.reps = repRow.value!
-                self.exToAdd.weightUsed = String(weightRow.value!)
-                self.exToAdd.description = descriptionRow.value!
+                if nameRow.value != nil {
+                    self.exToAdd.name = nameRow.value!
+                }
+                if dayRow.value != nil {
+                    self.exToAdd.day = dayRow.value!
+                }
+                if setRow.value != nil {
+                    self.exToAdd.sets = setRow.value!
 
+                }
+                if repRow.value != nil {
+                    self.exToAdd.reps = repRow.value!
+
+                }
+                if weightRow.value != nil {
+                    self.exToAdd.weightUsed = String(weightRow.value!)
+
+                }
+                if descriptionRow.value != nil {
+                    self.exToAdd.description = descriptionRow.value!
+                }
+
+                //                    print("fucker")
+                //                    print(self.exToAdd.name)
         
+                if (self.exToAdd.day == "Sunday") {
+                    sunEx.append(self.exToAdd)
+                    self.tableView.reloadData()
+                }
                 if (self.exToAdd.day == "Monday") {
-                    print("fucker")
-                    print(self.exToAdd.name)
                     monEx.append(self.exToAdd)
+                    self.tableView.reloadData()
+                }
+                if (self.exToAdd.day == "Tuesday") {
+                    tueEx.append(self.exToAdd)
+                    self.tableView.reloadData()
+                }
+                if (self.exToAdd.day == "Wednesday") {
+                    wedEx.append(self.exToAdd)
+                    self.tableView.reloadData()
+                }
+                if (self.exToAdd.day == "Thursday") {
+                    thurEx.append(self.exToAdd)
+                    self.tableView.reloadData()
+                }
+                if (self.exToAdd.day == "Friday") {
+                    friEx.append(self.exToAdd)
+                    self.tableView.reloadData()
+                }
+                if (self.exToAdd.day == "Saturday") {
+                    satEx.append(self.exToAdd)
                     self.tableView.reloadData()
                 }
                 
@@ -99,8 +138,11 @@ class ExerciseViewController: FormViewController {
                 self.viewDidLoad()
                 self.viewWillAppear(true)
                 
+                let vc2: FitnessTableViewController = FitnessTableViewController()
+                vc2.tableView.reloadData()
+                vc2.viewDidLoad()
                 
-                
+                print("about to exit the form")
  self.navigationController?.popViewController(animated: true)
                 
                 
